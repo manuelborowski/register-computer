@@ -1,0 +1,100 @@
+<!-- app/templates/auth/user.html -->
+<!-- this form is used for adding a user as well for editing a user, hence the if-clause -->
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+
+{% block content2 %}
+ <div class="content-section">
+  {{ utils.flashed_messages() }}
+    <div class="center">
+        <form method="post" enctype=multipart/form-data action="{{ url_for('registration.register') }}">
+            <div class="container">
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <label for="code">Code:</label>
+                        <input type="text" class="form-control" id="code" name="code" autofocus>
+                    </div>
+                    {% if new_registration %}
+                    <div class="col-sm-4">
+                        <label for="code">Nieuwe student : achternaam</label>
+                        <input type="text" class="form-control" id="new_last_name" name="new_last_name" autofocus>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="code">Nieuwe student : voorrnaam</label>
+                        <input type="text" class="form-control" id="new_first_name" name="new_first_name">
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="name">Naam:</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ student_name }}" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="computer">Computer:</label>
+                        <input type="text" class="form-control" id="computer" name="computer" value="{{ computer_code }}" readonly>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="custId" name="registration_id" value="{{ registration_id }}">
+            <input class="btn btn-default" type="submit" id="register" value="TEST">
+        </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th><th>Naam</th><th>Computer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for r in registrations %}
+            <tr>
+                <th>{{r.student_code}}</th>
+                <th>{{r.last_name}} {{r.first_name}}</th>
+                <th>{{r.computer_code}}</th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+   <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+ </div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    //when enter is pressed in the code field, a click on the button is simulated
+    var input = document.getElementById("code");
+    input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("register").click();
+    }
+});
+</script>
+
+{% endblock %}
