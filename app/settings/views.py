@@ -2,17 +2,15 @@
 # app/settings/views.py
 
 from flask import render_template, redirect, url_for, request, flash, send_file, abort
-from flask_login import login_required, current_user
+from flask_login import login_required
 from ..base import get_global_setting_current_schoolyear, set_global_setting_current_schoolyear, get_setting_simulate_dayhour, set_setting_simulate_dayhour
 from . import settings
 from .. import db, app, log
-from ..models import Settings, Classgroup, Student, Teacher, Lesson, Classmoment, Registration
+from ..models import Settings, Registration
 from flask_login import current_user
-from ..documents import  get_doc_path, get_doc_list, upload_doc, get_doc_select, get_doc_download, get_doc_reference
 
-import os
 import unicodecsv  as  csv
-import zipfile
+import cStringIO, csv
 
 def check_admin():
     if not current_user.is_admin:
@@ -91,5 +89,39 @@ def import_students(rfile):
 
     except Exception as e:
         flash('Kan bestand niet importeren')
+        log.warning('cannot import students')
     return redirect(url_for('settings.show'))
 
+#export a list of assets
+@settings.route('/settings/export', methods=['GET', 'POST'])
+@login_required
+def exportcsv():
+    #The following line is required only to build the filter-fields on the page.
+    csv_file = cStringIO.StringIO()
+    headers = [
+        'ACHTERNAAM',
+        'VOORNAAM',
+        'CODE',
+        'COMPUTER',
+        'TIJD',
+    ]
+
+    rows = []
+    for r in Registration.query.all():
+        rows.append(
+            {
+                'ACHTERNAAM': r.last_name,
+                'VOORNAAM': r.first_name,
+                'CODE': r.student_code,
+                'COMPUTER': r.computer_code,
+                'TIJD': r.timestamp,
+            }
+        )
+
+    writer = csv.DictWriter(csv_file, headers, delimiter=';')
+    writer.writeheader()
+    for r in rows:
+        writer.writerow(dict((k, v.encode('utf-8') if type(v) is unicode else v) for k, v in r.iteritems()))
+    csv_file.seek(0)
+    log.info('exported students')
+    return send_file(csv_file, attachment_filename='registraties.csv', as_attachment=True)

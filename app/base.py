@@ -4,12 +4,10 @@ from wtforms.widgets import HTMLString
 from wtforms import BooleanField
 from flask import flash,  request, get_flashed_messages, jsonify, url_for
 from flask_login import current_user
-from sqlalchemy import or_, func
+from sqlalchemy import or_
 import time, datetime
-from operator import getitem
 
-from models import User, Settings, Teacher, Classmoment, Classgroup, Lesson, Student, Offence, Measure, Type, Registration
-from .forms import ClassgroupFilter, TeacherFilter
+from models import User, Settings, Registration
 from . import log
 
 class InlineButtonWidget(object):
@@ -78,29 +76,6 @@ def build_filter(table, paginate=True):
 
     _filter_forms = {}
 
-    #Create the sql-request with the apropriate filters
-    # if 'lesson' in _filters_enabled:
-    #     _filter_forms['category'] = CategoryFilter()
-    #     value = check_string_in_form('category', request.values)
-    #     if value:
-    #         _filtered_list = _filtered_list.filter(Device.category == value)
-    # if 'status' in _filters_enabled:
-    #     _filter_forms['status'] = StatusFilter()
-    #     value = check_string_in_form('status', request.values)
-    #     if value:
-    #         _filtered_list = _filtered_list.filter(Asset.status == value)
-    # if 'supplier' in _filters_enabled:
-    #     _filter_forms['supplier'] = SupplierFilter()
-    #     value = check_string_in_form('supplier', request.values)
-    #     if value:
-    #         _filtered_list = _filtered_list.filter(Supplier.name == value)
-    # if 'device' in _filters_enabled:
-    #     _filter_forms['device'] = DeviceFilter()
-    #     value = check_string_in_form('device', request.values)
-    #     if value:
-    #         s = value.split('/')
-    #         _filtered_list = _filtered_list.filter(Device.brand==s[0].strip(), Device.type==s[1].strip())
-
     #search, if required
     #from template, take order_by and put in a list.  This is user later on, to get the columns in which can be searched
     column_list = [a['order_by'] for a in _template]
@@ -108,28 +83,8 @@ def build_filter(table, paginate=True):
     if search_value:
         a = search_value.split('-')[::-1]
         a[0] += '%'
-        search_date = '%' + '-'.join(a) + '%'
         search_value = '%' + search_value + '%'
         search_constraints = []
-        # if Asset.name in column_list:
-        #     search_constraints.append(Asset.name.like(search_value))
-        # if Device.category in column_list:
-        #     search_constraints.append(Device.category.like(search_value))
-        # if Asset.location in column_list:
-        #     search_constraints.append(Asset.location.like(search_value))
-        # if Purchase.since in column_list:
-        #     search_constraints.append(Purchase.since.like(search_date))
-        # if Purchase.value in column_list:
-        #     search_constraints.append(Purchase.value.like(search_value))
-        # if Asset.qr_code in column_list:
-        #     search_constraints.append(Asset.qr_code.like(search_value))
-        # if Asset.status in column_list:
-        #     search_constraints.append(Asset.status.like(search_value))
-        # if Supplier.name in column_list:
-        #     search_constraints.append(Supplier.name.like(search_value))
-        # if Device.brand in column_list:
-        #     search_constraints.append(Device.brand.like(search_value))
-        #     search_constraints.append(Device.type.like(search_value))
         if Registration.first_name in column_list:
             search_constraints.append(Registration.first_name.like(search_value))
         if Registration.last_name in column_list:
@@ -151,10 +106,6 @@ def build_filter(table, paginate=True):
             _filtered_list = _filtered_list.filter(or_(*search_constraints))
 
     _filtered_count = _filtered_list.count()
-    
-    #Measure and Type have to join here because they mess up the count
-    #if _model is Offence:
-    #    _filtered_list = _filtered_list.join(Measure).join(Type)
 
     #order, if required, first stage
     column_number = check_value_in_form('order[0][column]', request.values)
@@ -282,111 +233,5 @@ def get_global_setting_current_schoolyear():
 def set_global_setting_current_schoolyear(value):
     return set_setting('current_schoolyear', str(value), 1)
 
-######################################################################################################
-###  Overview : select appropriate classgroup e.d.
-######################################################################################################
-
-def get_timeslot_from_current_time():
-    TT = [
-        (8*60+30,  8*60+30+50,  1),   #first hour : 8:30 till 9:20
-        (9*60+20,  9*60+20+50,  2),
-        (10*60+25, 10*60+25+50, 3),
-        (11*60+15, 11*60+15+50, 4),
-        (12*60+5,  12*60+5+55,  5),
-        (13*60+0,  13*60+0+50,  6),
-        (13*60+50, 13*60+50+50, 7),
-        (14*60+55, 15*60+55+50, 8),
-        (15*60+45, 15*60+45+50, 9),
-    ]
-
-    TT_W = [
-        (8*60+30,  8*60+30+50,  1),   #first hour : 8:30 till 9:20
-        (9*60+20,  9*60+20+50,  2),
-        (10*60+20, 10*60+20+50, 3),
-        (11*60+10, 11*60+10+50, 4),
-    ]
-
-    simulate_dayhour = get_setting_simulate_dayhour()
-    if simulate_dayhour != '0/0':
-        return Classmoment.decode_dayhour(simulate_dayhour)
-
-    now = datetime.datetime.now()
-    day = now.weekday()+1
-    if day > 5: return 1, 1 #no school, return monday, first hour
-    tt = TT_W if day == 3 else TT
-    m = now.hour * 60 + now.minute
-    for t in tt:
-        if m >= t[0] and m < t[1]: return day, t[2]
-    return 1, 1 #not found, return monday, first hour
 
 
-
-def filter_overview(teacher_id, dayhour_str, classgroup_id, lesson_id, changed_item=None):
-    #filter on teacher, timeslot , classgroup and lesson
-    #priority is as follows:
-    #- if teacher is changed: determine timeslot from current time and find classgroup and lesson from timetable
-    #- if timeslot is changed: from teacher and timeslot determine classgroup and lesson from timetable
-    #                             If this does not work, pick first classgroup for that teacher
-    #- if classgroup is changed : from teacher, timeslot and classgroup, try to determine lesson from timetable.
-    #                             If this does not work, pick first available lesson for that classgroup
-    #- if lesson is changed : go with the flow... :-)
-    teacher = None
-    classgroup = None
-    lesson = None
-    d = 0
-    h = 0
-
-    if changed_item:
-        teacher = Teacher.query.get(teacher_id)
-        classgroup = Classgroup.query.get(classgroup_id)
-        lesson = Lesson.query.get(lesson_id)
-        d, h = Classmoment.decode_dayhour(dayhour_str)
-    else:
-        teacher = Teacher.query.distinct(Teacher.code).order_by(Teacher.code).first()
-        changed_item = 'teacher'
-
-    if changed_item == 'teacher':
-        d, h = get_timeslot_from_current_time()
-        #if default day and hour (1, 1) is returned, try to find the first avaible lesmoment for given teacher
-        classmoment = Classmoment.query.join(Teacher).filter(Teacher.id == teacher.id).order_by(Classmoment.day, Classmoment.hour).first()
-        if classmoment:
-            d = classmoment.day
-            h = classmoment.hour
-        #dayhour_str = '{}/{}'.format(d,h)
-        changed_item = 'dayhour'
-
-    if changed_item == 'dayhour':
-        #fetch classgroup from timetable
-        classmoment = Classmoment.query.join(Teacher).filter(Classmoment.day == d, Classmoment.hour == h, Teacher.id == teacher.id).first()
-        if classmoment:
-            #the classmoment points to a single teacher, classgroup and lesson
-            print(classmoment)
-            return classmoment
-        # find the first classgroup, teached by given teacher
-        classgroup = Classgroup.query.join(Classmoment).join(Teacher).filter(Teacher.id == teacher.id).distinct(Classgroup.name).order_by(Classgroup.name).first()
-        if not classgroup:
-            #just pick the first classgroup from all classgroups
-            classgroup = Classgroup.query.distinct(Classgroup.name).order_by(Classgroup.name).first()
-        changed_item = 'classgroup'
-
-    if changed_item == 'classgroup':
-        #find the first lesson, taken by given classgroup
-        lesson = Lesson.query.join(Classmoment).join(Classgroup).join(Teacher).filter(Classgroup.id == classgroup.id, Teacher.id == teacher.id)\
-                .distinct(Lesson.name).order_by(Lesson.name).first()
-        if not lesson:
-            #just pick the first lesson
-            lesson = Lesson.query.distinct(Lesson.name).order_by(Lesson.name).first()
-
-    #create a dummy classmoment
-    classmoment = Classmoment(day=d, hour=h, schoolyear = get_global_setting_current_schoolyear(), teacher=teacher, lesson=lesson, classgroup=classgroup)
-    print(classmoment)
-    return classmoment
-
-def filter_duplicates_out(in_list):
-    out_list = []
-    added = set()
-    for val in in_list:
-        if not val in added:
-            out_list.append(val)
-            added.add(val)
-    return out_list

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from models import User, Offence, Teacher, Student, Classgroup, Lesson, Type, Measure, Registration
+from models import User, Registration
 import user.extra_filtering
 from floating_menu import default_menu_config, offence_menu_config
 
@@ -16,18 +16,9 @@ tables_configuration = {
                       {'name': 'Voornaam', 'data':'first_name', 'order_by': Registration.first_name, 'width': '10%'},
                       {'name': 'Computer', 'data':'computer_code', 'order_by': Registration.computer_code, 'width': '10%'},
                       {'name': 'Tijd', 'data':'timestamp', 'order_by': Registration.timestamp, 'width': '10%'},
-                      # {'name': 'Klas', 'data':'student.classgroup.name', 'order_by': Classgroup.name, 'width': '5%'},
-                      # {'name': 'Les', 'data':'lesson.name', 'order_by': Lesson.name, 'width': '5%'},
-                      # {'name': 'Opmerking', 'data':'types', 'order_by': lambda k: k['types'], 'width': '30%'},
-                      # {'name': 'Maatregel', 'data':'measures', 'order_by': lambda k: k['measures'], 'width': '30%'},
                       ],
         'filter' :  [],
         'href': [],
-        # 'href': [{'attribute': '["name"]', 'route': '"asset.view"', 'id': '["id"]'},
-        #          {'attribute': '["purchase"]["since"]', 'route': '"purchase.view"', 'id': '["purchase"]["id"]'},
-        #          {'attribute': '["purchase"]["supplier"]["name"]', 'route': '"supplier.view"', 'id': '["purchase"]["supplier"]["id"]'},
-        #          {'attribute': '["purchase"]["device"]["brandtype"]', 'route': '"device.view"', 'id': '["purchase"]["device"]["id"]'}
-        #          ],
         'floating_menu' : offence_menu_config,
         'disable_add_button' : True,
         #'export' : 'asset.exportcsv',

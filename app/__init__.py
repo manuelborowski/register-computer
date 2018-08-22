@@ -48,7 +48,7 @@ def create_app(config_name):
     global log
 
     #set up logging
-    LOG_FILENAME = os.path.join(sys.path[0], app_config[config_name].STATIC_PATH, 'log/sb-log.txt')
+    LOG_FILENAME = os.path.join(sys.path[0], app_config[config_name].STATIC_PATH, 'log/cr-log.txt')
     try:
         log_level = getattr(logging, app_config[config_name].LOG_LEVEL)
     except:
@@ -89,9 +89,6 @@ def create_app(config_name):
         #uncheck when migrating database
         #return app
 
-        #from .overview import overview as overview_blueprint
-        #app.register_blueprint(overview_blueprint)
-
         from .auth import auth as auth_blueprint
         app.register_blueprint(auth_blueprint)
 
@@ -103,9 +100,6 @@ def create_app(config_name):
 
         from .registration import registration as registration_blueprint
         app.register_blueprint(registration_blueprint)
-
-        from .documents import init_documents
-        init_documents(app, 'photo')
 
         @app.errorhandler(403)
         def forbidden(error):

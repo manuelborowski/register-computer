@@ -25,8 +25,6 @@ def login():
             # log user in
             login_user(user)
             log.info('User logged in')
-            #reset the asset last_added when logging in...
-            if 'asset_last_added' in session: session['asset_last_added'] = -1
 
             # redirect to the appropriate page
             if 'redirect_url' in request.args:
