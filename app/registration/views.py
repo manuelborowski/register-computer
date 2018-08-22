@@ -32,25 +32,39 @@ def register():
     computer_code = ''
     registration_id = -1
     new_registration = False
+    barcode = ''
     try:
         if 'code' in request.form:
-            code = request.form['code']
-            registration_id = int(request.form['registration_id'])
-            if code[:2] == 'LL':    #student code
-                registration = Registration.query.filter(Registration.student_code==code).first()
-                if registration:
-                    student_name = u'{} {}'.format(registration.last_name, registration.first_name)
-                    computer_code = ''
-                    registration_id = registration.id
-                else: #student code not present : new entry
-                    new_registration = True
-            elif code[:3] == 'URS' and registration_id > -1:
-                #add a computer code.  Old computer code will be overwritten
-                registration = Registration.query.get(registration_id)
-                if registration:
-                    registration.computer_code = None if code == u'URSDELETE' else code
-                    registration.timestamp = datetime.datetime.now()
-                    db.session.commit()
+            code = request.form['code'].upper()
+            if 'add_student' in request.form:
+                if request.form['add_student']=='Bewaar': #save new student
+                    first_name = request.form['new_first_name']
+                    last_name = request.form['new_last_name']
+                    if last_name=='' or first_name=='':
+                        flash('Naam is niet volledig, probeer opnieuw')
+                    else:
+                        registration = Registration(first_name=first_name, last_name=last_name, student_code=code)
+                        db.session.add(registration)
+                        db.session.commit()
+                        flash(u'Nieuwe student: {} {} met code {}'.format(last_name, first_name, code))
+            else:
+                registration_id = int(request.form['registration_id'])
+                if code[:2] == 'LL':    #student code
+                    registration = Registration.query.filter(Registration.student_code==code).first()
+                    if registration:
+                        student_name = u'{} {}'.format(registration.last_name, registration.first_name)
+                        computer_code = ''
+                        registration_id = registration.id
+                    else: #student code not present : new entry
+                        new_registration = True
+                        barcode = code
+                elif code[:3] == 'URS' and registration_id > -1:
+                    #add a computer code.  Old computer code will be overwritten
+                    registration = Registration.query.get(registration_id)
+                    if registration:
+                        registration.computer_code = None if code == u'URSDELETE' else code
+                        registration.timestamp = datetime.datetime.now()
+                        db.session.commit()
     except IntegrityError as e: #computer code already present
         db.session.rollback()
         r = Registration.query.filter(Registration.computer_code==code).first()
@@ -58,9 +72,12 @@ def register():
         student_name = ''
         computer_code = ''
         registration_id = -1
+        barcode = ''
 
     registrations = Registration.query.filter(Registration.computer_code<>'').order_by(Registration.timestamp.desc()).all()
-    return render_template('registration/registration.html', student_name=student_name, computer_code=computer_code,
+    return render_template('registration/registration.html', student_name=student_name,
+                           barcode=barcode,
+                           computer_code=computer_code,
                            registration_id=registration_id,
                            registrations=registrations,
                            new_registration=new_registration)
