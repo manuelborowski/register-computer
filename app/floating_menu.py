@@ -30,6 +30,5 @@ admin_menu_config = [
 ]
 
 offence_menu_config = [
-    fmi_view,
     fmi_delete
 ]

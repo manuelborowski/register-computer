@@ -92,6 +92,12 @@ class Registration(db.Model):
     def __repr__(self):
         return '<Registration: {}/{}/{}/{}/{}/{}'.format(self.id, self.first_name, self.last_name, self.classgroup, self.student_code, self.computer_code)
 
+    def ret_dict(self):
+        return {'id':self.id, 'first_name':self.first_name, 'last_name': self.last_name, 'classgroup': self.classgroup,
+                'full_name': u'{} {}'.format(self.first_name, self.last_name), 'computer_code': self.computer_code,
+                'student_code': self.student_code, 'timestamp': self.timestamp}
+
+
 class Student(db.Model):
     __tablename__ = 'students'
 

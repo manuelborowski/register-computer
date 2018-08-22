@@ -1,26 +1,27 @@
 # -*- coding: utf-8 -*-
 
-from models import User, Offence, Teacher, Student, Classgroup, Lesson, Type, Measure
+from models import User, Offence, Teacher, Student, Classgroup, Lesson, Type, Measure, Registration
 import user.extra_filtering
 from floating_menu import default_menu_config, offence_menu_config
 
 tables_configuration = {
-    'offence' : {
-        'model' : Offence,
-        'title' : 'Opmerking',
-        'route' : 'offence.offences',
-        'subject' :'offence',
+    'registration' : {
+        'model' : Registration,
+        'title' : 'Registraties',
+        'route' : 'registration.registrations',
+        'subject' :'registration',
         'delete_message' : '',
-        'template' : [{'name': 'Datum', 'data':'date', 'order_by': Offence.timestamp, 'width': '12%'},
-                      {'name': 'Leerling', 'data':'student.full_name', 'order_by': Student.last_name, 'width': '10%'},
-                      {'name': 'Aantal', 'data':'student.number', 'order_by': lambda k: k['student']['number'], 'width': '5%'},
-                      {'name': 'Leerkracht', 'data':'teacher.code', 'order_by': Teacher.code, 'width': '5%'},
-                      {'name': 'Klas', 'data':'student.classgroup.name', 'order_by': Classgroup.name, 'width': '5%'},
-                      {'name': 'Les', 'data':'lesson.name', 'order_by': Lesson.name, 'width': '5%'},
-                      {'name': 'Opmerking', 'data':'types', 'order_by': lambda k: k['types'], 'width': '30%'},
-                      {'name': 'Maatregel', 'data':'measures', 'order_by': lambda k: k['measures'], 'width': '30%'},
+        'template' : [{'name': 'Code', 'data':'student_code', 'order_by': Registration.student_code, 'width': '5%'},
+                      {'name': 'Achternaam', 'data':'last_name', 'order_by': Registration.last_name, 'width': '10%'},
+                      {'name': 'Voornaam', 'data':'first_name', 'order_by': Registration.first_name, 'width': '10%'},
+                      {'name': 'Computer', 'data':'computer_code', 'order_by': Registration.computer_code, 'width': '10%'},
+                      {'name': 'Tijd', 'data':'timestamp', 'order_by': Registration.timestamp, 'width': '10%'},
+                      # {'name': 'Klas', 'data':'student.classgroup.name', 'order_by': Classgroup.name, 'width': '5%'},
+                      # {'name': 'Les', 'data':'lesson.name', 'order_by': Lesson.name, 'width': '5%'},
+                      # {'name': 'Opmerking', 'data':'types', 'order_by': lambda k: k['types'], 'width': '30%'},
+                      # {'name': 'Maatregel', 'data':'measures', 'order_by': lambda k: k['measures'], 'width': '30%'},
                       ],
-        'filter' :  ['date', 'teacher', 'classgroup', 'lesson'],
+        'filter' :  [],
         'href': [],
         # 'href': [{'attribute': '["name"]', 'route': '"asset.view"', 'id': '["id"]'},
         #          {'attribute': '["purchase"]["since"]', 'route': '"purchase.view"', 'id': '["purchase"]["id"]'},

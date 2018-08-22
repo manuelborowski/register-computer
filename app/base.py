@@ -8,7 +8,7 @@ from sqlalchemy import or_, func
 import time, datetime
 from operator import getitem
 
-from models import User, Settings, Teacher, Classmoment, Classgroup, Lesson, Student, Offence, Measure, Type
+from models import User, Settings, Teacher, Classmoment, Classgroup, Lesson, Student, Offence, Measure, Type, Registration
 from .forms import ClassgroupFilter, TeacherFilter
 from . import log
 
@@ -58,7 +58,7 @@ def check_value_in_form(value_key, form):
 def check_string_in_form(value_key, form):
     if value_key in form and form[value_key] != '':
         try:
-            str(form[value_key])
+            unicode(form[value_key])
             return form[value_key]
         except:
             flash('Verkeerde tekst notatie')
@@ -71,18 +71,6 @@ def build_filter(table, paginate=True):
     _template = table['template']
     _filtered_list = _model.query
 
-    if 'classgroup' in  _filters_enabled:
-         _filtered_list = _filtered_list.join(Student).join(Classgroup)
-    if 'teacher' in _filters_enabled:
-        _filtered_list = _filtered_list.join(Teacher)
-    if 'lesson' in _filters_enabled:
-        _filtered_list = _filtered_list.join(Lesson)
-
-    # if ('category' in _filters_enabled or 'device' in _filters_enabled) and _model is not Device:
-    #     _filtered_list = _filtered_list.join(Device)
-    # if 'supplier' in _filters_enabled and _model is not Supplier :
-    #     _filtered_list = _filtered_list.join(Supplier)
-
     if 'query_filter' in table:
         _filtered_list = table['query_filter'](_filtered_list)
 
@@ -91,26 +79,6 @@ def build_filter(table, paginate=True):
     _filter_forms = {}
 
     #Create the sql-request with the apropriate filters
-    if 'date' in _filters_enabled:
-        date = check_date_in_form('date_after', request.values)
-        if date:
-            _filtered_list = _filtered_list.filter(Offence.timestamp >= Offence.reverse_date(date))
-        date = check_date_in_form('date_before', request.values)
-        if date:
-            _filtered_list = _filtered_list.filter(Offence.since <= Offence.reverse_date(date))
-
-    if 'teacher' in _filters_enabled:
-        _filter_forms['teacher'] = TeacherFilter()
-        value = check_value_in_form('teacher', request.values)
-        if value:
-            _filtered_list = _filtered_list.filter(Teacher.id == value)
-
-    if 'classgroup' in _filters_enabled:
-        _filter_forms['classgroup'] = ClassgroupFilter()
-        value = check_value_in_form('classgroup', request.values)
-        if value:
-            _filtered_list = _filtered_list.filter(Classgroup.id == value)
-
     # if 'lesson' in _filters_enabled:
     #     _filter_forms['category'] = CategoryFilter()
     #     value = check_string_in_form('category', request.values)
@@ -162,8 +130,14 @@ def build_filter(table, paginate=True):
         # if Device.brand in column_list:
         #     search_constraints.append(Device.brand.like(search_value))
         #     search_constraints.append(Device.type.like(search_value))
-        # if Asset.serial in column_list:
-        #     search_constraints.append(Asset.serial.like(search_value))
+        if Registration.first_name in column_list:
+            search_constraints.append(Registration.first_name.like(search_value))
+        if Registration.last_name in column_list:
+            search_constraints.append(Registration.last_name.like(search_value))
+        if Registration.computer_code in column_list:
+            search_constraints.append(Registration.computer_code.like(search_value))
+        if Registration.student_code in column_list:
+            search_constraints.append(Registration.student_code.like(search_value))
         if User.username in column_list:
             search_constraints.append(User.username.like(search_value))
         if User.first_name in column_list:
