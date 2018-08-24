@@ -14,6 +14,7 @@ tables_configuration = {
         'template' : [{'name': 'Code', 'data':'student_code', 'order_by': Registration.student_code, 'width': '5%'},
                       {'name': 'Achternaam', 'data':'last_name', 'order_by': Registration.last_name, 'width': '10%'},
                       {'name': 'Voornaam', 'data':'first_name', 'order_by': Registration.first_name, 'width': '10%'},
+                      {'name': 'Klas', 'data':'classgroup', 'order_by': Registration.classgroup, 'width': '5%'},
                       {'name': 'Computer', 'data':'computer_code', 'order_by': Registration.computer_code, 'width': '10%'},
                       {'name': 'Tijd', 'data':'timestamp', 'order_by': Registration.timestamp, 'width': '10%'},
                       ],

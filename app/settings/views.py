@@ -9,7 +9,7 @@ from .. import db, app, log
 from ..models import Settings, Registration
 from flask_login import current_user
 
-import unicodecsv  as  csv
+import unicodecsv as csv
 import cStringIO, csv
 
 def check_admin():
@@ -59,27 +59,28 @@ def upload_file():
     if request.files['upload_students']: import_students(request.files['upload_students'])
     return redirect(url_for('settings.show'))
 
-#NAAM           last_name
-#VOORNAAM       first_name
-#LEERLINGNUMMER number
+#Achternaam     last_name
+#Voornaam       first_name
+#Code           number
 #FOTO           photo
-#KLAS           classgroup_id
+#Klas           classgroup
 
 def import_students(rfile):
     try:
         # format csv file :
         log.info('Import students from : {}'.format(rfile))
-        students_file = csv.DictReader(rfile,  delimiter=';', encoding='utf-8-sig', fieldnames=['CODE', 'FIRST_NAME', 'LAST_NAME'])
+        students_file = csv.DictReader(rfile,  delimiter=';')
+        #students_file = csv.DictReader(rfile,  delimiter=';', encoding='utf-8-sig')
 
         nbr_students = 0
         for s in students_file:
             #skip empy records
-            if s['CODE'] != '' and s['FIRST_NAME'] != '' and s['LAST_NAME'] != '':
+            if s['Code'] != '' and s['Voornaam'] != '' and s['Achternaam'] != '' and s['Klas'] != '':
                 #add student, if not already present
-                find_student=Registration.query.filter(Registration.first_name==s['FIRST_NAME'], Registration.last_name==s['LAST_NAME'],
-                                                        Registration.student_code ==(s['CODE'])).first()
+                find_student=Registration.query.filter(Registration.first_name==s['Voornaam'], Registration.last_name==s['Achternaam'],
+                                                        Registration.student_code ==s['Code'], Registration.classgroup==s['Klas']).first()
                 if not find_student:
-                    student = Registration(first_name=s['FIRST_NAME'], last_name=s['LAST_NAME'], student_code=s['CODE'])
+                    student = Registration(first_name=s['Voornaam'], last_name=s['Achternaam'], student_code=s['Code'], classgroup=s['Klas'])
                     db.session.add(student)
                     nbr_students += 1
 
@@ -99,22 +100,24 @@ def exportcsv():
     #The following line is required only to build the filter-fields on the page.
     csv_file = cStringIO.StringIO()
     headers = [
-        'ACHTERNAAM',
-        'VOORNAAM',
-        'CODE',
-        'COMPUTER',
-        'TIJD',
+        'Achternaam',
+        'Voornaam',
+        'Klas',
+        'Code',
+        'Computer',
+        'Tijdstempel',
     ]
 
     rows = []
     for r in Registration.query.all():
         rows.append(
             {
-                'ACHTERNAAM': r.last_name,
-                'VOORNAAM': r.first_name,
-                'CODE': r.student_code,
-                'COMPUTER': r.computer_code,
-                'TIJD': r.timestamp,
+                'Achternaam': r.last_name,
+                'Voornaam': r.first_name,
+                'Klas' : r.classgroup,
+                'Code': r.student_code,
+                'Computer': r.computer_code,
+                'Tijdstempel': r.timestamp,
             }
         )
 

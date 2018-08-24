@@ -14,10 +14,10 @@ class EditForm(FlaskForm):
     Edit an existing user
     """
 
-    first_name = StringField('First name', validators=[DataRequired()])
-    last_name = StringField('Last name', validators=[DataRequired()])
+    first_name = StringField('First name')
+    last_name = StringField('Last name')
     username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    email = StringField('Email')
     is_admin = BooleanField('Is admin')
     id = IntegerField(widget=HiddenInput())
 

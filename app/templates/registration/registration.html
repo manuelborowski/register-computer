@@ -27,8 +27,12 @@
                                 <input type="text" class="form-control" id="new_last_name" name="new_last_name" {% if new_registration %}autofocus{% endif %}>
                             </div>
                             <div class="col-sm-4">
-                                <label for="code">Voorrnaam</label>
+                                <label for="code">Voornaam</label>
                                 <input type="text" class="form-control" id="new_first_name" name="new_first_name">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="code">klas</label>
+                                <input type="text" class="form-control" id="new_classgroup" name="new_classgroup">
                             </div>
                         </div>
                         <div class="btn-group">
@@ -43,9 +47,9 @@
                         <label for="name">Naam:</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ student_name }}" readonly>
                     </div>
-                    <div class="col-sm-4">
-                        <label for="computer">Computer:</label>
-                        <input type="text" class="form-control" id="computer" name="computer" value="{{ computer_code }}" readonly>
+                    <div class="col-sm-1">
+                        <label for="classgroup">Klas:</label>
+                        <input type="text" class="form-control" id="classgroup" name="classgroup" value="{{ classgroup }}" readonly>
                     </div>
                 </div>
             </div>
@@ -55,15 +59,16 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Code</th><th>Naam</th><th>Computer</th>
+                <th>Code</th><th>Naam</th><th>Klas</th><th>Computer</th>
             </tr>
         </thead>
         <tbody>
         {% for r in registrations %}
             <tr>
-                <th>{{r.student_code}}</th>
-                <th>{{r.last_name}} {{r.first_name}}</th>
-                <th>{{r.computer_code}}</th>
+                <td>{{r.student_code}}</td>
+                <td>{{r.last_name}} {{r.first_name}}</td>
+                <td>{{r.classgroup}}</td>
+                <td>{{r.computer_code}}</td>
             </tr>
         {% endfor %}
         </tbody>

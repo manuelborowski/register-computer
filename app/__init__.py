@@ -24,7 +24,7 @@ from config import app_config
 db = SQLAlchemy()
 login_manager = LoginManager()
 
-#The original werkzeug-url-converter cannot handle negative integers (e.g. asset/add/-1/1)  
+#The original werkzeug-url-converter cannot handle negative integers (e.g. asset/add/-1/1)
 class IntegerConverter(OrigIntegerConvertor):
     regex = r'-?\d+'
     num_convert = int

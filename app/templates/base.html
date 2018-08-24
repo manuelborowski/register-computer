@@ -30,6 +30,7 @@
                   <li><a href="{{ url_for('user.users') }}">Gebruikers</a></li>
                   <li><a href="{{ url_for('settings.show') }}">Instellingen</a></li>
                   <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                  <li><a><i class="fa fa-user"></i>  Hi, {{ current_user.username }}!</a></li>
               {% else %}
                   <li><a href="#">Login</a></li>
               {% endif %}

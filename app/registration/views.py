@@ -39,6 +39,7 @@ def registrations():
 def register():
     student_name = ''
     computer_code = ''
+    classgroup = ''
     registration_id = -1
     new_registration = False
     barcode = ''
@@ -49,21 +50,23 @@ def register():
                 if request.form['add_student']=='Bewaar': #save new student
                     first_name = request.form['new_first_name']
                     last_name = request.form['new_last_name']
+                    classgroup = request.form['new_classgroup']
                     if last_name=='' or first_name=='':
                         flash('Naam is niet volledig, probeer opnieuw')
                         log.info('add student : bad name')
                     else:
-                        registration = Registration(first_name=first_name, last_name=last_name, student_code=code)
+                        registration = Registration(first_name=first_name, last_name=last_name, student_code=code, classgroup=classgroup)
                         db.session.add(registration)
                         db.session.commit()
-                        flash(u'Nieuwe student: {} {} met code {}'.format(last_name, first_name, code))
-                        log.info(u'added student : {} {} with code {}'.format(last_name, first_name, code))
+                        flash(u'Nieuwe student: {} {} {} met code {}'.format(last_name, first_name, classgroup, code))
+                        log.info(u'added student : {} {} {} with code {}'.format(last_name, first_name, classgroup, code))
             else:
                 registration_id = int(request.form['registration_id'])
                 if code[:2] == 'LL':    #student code
                     registration = Registration.query.filter(Registration.student_code==code).first()
                     if registration:
                         student_name = u'{} {}'.format(registration.last_name, registration.first_name)
+                        classgroup = registration.classgroup
                         computer_code = ''
                         registration_id = registration.id
                     else: #student code not present : new entry
@@ -75,6 +78,7 @@ def register():
                     if registration:
                         registration.computer_code = None if code == u'URSDELETE' else code
                         registration.timestamp = datetime.datetime.now()
+                        registration.user_id = current_user.id
                         db.session.commit()
                         log.info(u'assigned pc {} to student code {}'.format(code, registration.student_code))
     except IntegrityError as e: #computer code already present
@@ -87,11 +91,12 @@ def register():
         registration_id = -1
         barcode = ''
 
-    registrations = Registration.query.filter(Registration.computer_code<>'').order_by(Registration.timestamp.desc()).all()
+    registrations = Registration.query.filter(Registration.computer_code<>'', Registration.user_id==current_user.id).order_by(Registration.timestamp.desc()).all()
     return render_template('registration/registration.html', student_name=student_name,
                            barcode=barcode,
                            computer_code=computer_code,
                            registration_id=registration_id,
-                           registrations=registrations,
-                           new_registration=new_registration)
+                           new_registration=new_registration,
+                           classgroup=classgroup,
+                           registrations=registrations)
 

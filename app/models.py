@@ -14,10 +14,10 @@ class User(UserMixin, db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(256), index=True)
+    email = db.Column(db.String(256))
     username = db.Column(db.String(256), index=True, unique=True)
-    first_name = db.Column(db.String(256), index=True)
-    last_name = db.Column(db.String(256), index=True)
+    first_name = db.Column(db.String(256))
+    last_name = db.Column(db.String(256))
     password_hash = db.Column(db.String(256))
     is_admin = db.Column(db.Boolean, default=False)
     settings = db.relationship('Settings', cascade='all, delete', backref='user', lazy='dynamic')
@@ -88,6 +88,7 @@ class Registration(db.Model):
     student_code = db.Column(db.String(256), unique=True)
     computer_code = db.Column(db.String(256), unique=True)
     timestamp = db.Column(db.DateTime())
+    user_id = db.Column(db.Integer, default=-1)
 
     def __repr__(self):
         return '<Registration: {}/{}/{}/{}/{}/{}'.format(self.id, self.first_name, self.last_name, self.classgroup, self.student_code, self.computer_code)
