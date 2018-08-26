@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="form-group row">
                     <div class="col-sm-2">
-                        <label for="code">Code:</label>
+                        <label for="code" id="code_label">{% if registration_id > -1 %}Computercode: {% else %}Leerlingcode:{% endif %}</label>
                         <input type="text" class="form-control" id="code" name="code" value="{{barcode}}" {% if not new_registration %}autofocus{% endif %}>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                                 <label for="code">Voornaam</label>
                                 <input type="text" class="form-control" id="new_first_name" name="new_first_name">
                             </div>
-                            <div class="col-sm-1">
+                            <div class="col-sm-2">
                                 <label for="code">klas</label>
                                 <input type="text" class="form-control" id="new_classgroup" name="new_classgroup">
                             </div>
@@ -42,18 +42,22 @@
                     </div>
                 </div>
                 {% endif %}
+                {% if registration_id > -1 %}
                 <div class="form-group row">
                     <div class="col-sm-4">
                         <label for="name">Naam:</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ student_name }}" readonly>
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-2">
                         <label for="classgroup">Klas:</label>
                         <input type="text" class="form-control" id="classgroup" name="classgroup" value="{{ classgroup }}" readonly>
                     </div>
                 </div>
+                {% endif %}
             </div>
             <input type="hidden" id="custId" name="registration_id" value="{{ registration_id }}">
+            <!--<input class="btn btn-default" type="submit" id="register" style="display: none;" value="TEST">-->
+            <!-- When testing with selenium, remove the style="display: none" -->
             <input class="btn btn-default" type="submit" id="register" style="display: none;" value="TEST">
         </form>
     <table class="table">
@@ -66,7 +70,7 @@
         {% for r in registrations %}
             <tr>
                 <td>{{r.student_code}}</td>
-                <td>{{r.last_name}} {{r.first_name}}</td>
+                <td>{{r.first_name}} {{r.last_name}}</td>
                 <td>{{r.classgroup}}</td>
                 <td>{{r.computer_code}}</td>
             </tr>

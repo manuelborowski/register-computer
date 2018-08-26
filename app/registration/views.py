@@ -81,11 +81,25 @@ def register():
                         registration.user_id = current_user.id
                         db.session.commit()
                         log.info(u'assigned pc {} to student code {}'.format(code, registration.student_code))
+                        registration_id = -1
+                else:
+                    flash(u'Onbekende code.  Code moet beginnen met LL of URS')
+                    log.info(u'unknown code (does not start with LL or URS)')
+                    registration_id = -1
+
     except IntegrityError as e: #computer code already present
         db.session.rollback()
         r = Registration.query.filter(Registration.computer_code==code).first()
         flash(u'Deze computer code is reeds toegewezen aan {} {}'.format(r.last_name, r.first_name))
-        log.warning(u'PC {} is already assigned to {}'.format(code, r.student_code))
+        log.warning(u'PC {} is already assigned to {}.  error {}'.format(code, r.student_code, e))
+        student_name = ''
+        computer_code = ''
+        registration_id = -1
+        barcode = ''
+    except Exception as e:
+        db.session.rollback()
+        flash(u'Onbekende fout, probeer opnieuw')
+        log.warning(u'unknow error : {}'.format(e))
         student_name = ''
         computer_code = ''
         registration_id = -1

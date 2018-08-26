@@ -1,0 +1,671 @@
+1535188552730	geckodriver	INFO	geckodriver 0.21.0
+1535188552734	geckodriver	INFO	Listening on 127.0.0.1:35887
+1535188553747	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.grV5tITAVkVd"
+1535188556641	Marionette	INFO	Listening on port 46015
+1535188556689	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 14932, Gecko_IOThread] WARNING: pipe error (72): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535204452242	geckodriver	INFO	geckodriver 0.21.0
+1535204452249	geckodriver	INFO	Listening on 127.0.0.1:60333
+1535204453250	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5SjHgZ4swuvB"
+1535204455645	Marionette	INFO	Listening on port 34921
+1535204455704	Marionette	WARN	TLS certificate errors will be ignored for this session
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535205021391	geckodriver	INFO	geckodriver 0.21.0
+1535205021396	geckodriver	INFO	Listening on 127.0.0.1:43725
+1535205022404	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.abjceRuScL2i"
+1535205025070	Marionette	INFO	Listening on port 33997
+1535205025137	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535205050357	geckodriver	INFO	geckodriver 0.21.0
+1535205050362	geckodriver	INFO	Listening on 127.0.0.1:57023
+1535205051367	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.e0iajwzOj8Sa"
+1535205053367	Marionette	INFO	Listening on port 34285
+1535205053418	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535205133918	geckodriver	INFO	geckodriver 0.21.0
+1535205133923	geckodriver	INFO	Listening on 127.0.0.1:40489
+1535205133946	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ZboOLG6Gi8M9"
+1535205136991	Marionette	INFO	Listening on port 46875
+1535205137107	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:16659): dconf-WARNING **: 15:52:26.438: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+1535205243133	geckodriver	INFO	geckodriver 0.21.0
+1535205243146	geckodriver	INFO	Listening on 127.0.0.1:39343
+1535205244151	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.P7o7d4vKoUfg"
+1535205253643	Marionette	INFO	Listening on port 38899
+1535205254885	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535219454469	geckodriver	INFO	geckodriver 0.21.0
+1535219454486	geckodriver	INFO	Listening on 127.0.0.1:40579
+1535219455484	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.BICWFkV7uh52"
+1535219470824	Marionette	INFO	Listening on port 41547
+1535219471638	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 16272, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x490008,name=PHttpChannel::Msg_DocumentChannelCleanup) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x490008,name=PHttpChannel::Msg_DocumentChannelCleanup) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][DispatchAsyncMessage] Error: PClientSource::Msg_Teardown Route error: message sent to unknown actor ID
+
+
+###!!! [Parent][DispatchAsyncMessage] Error: PClientManager::Msg_Teardown Route error: message sent to unknown actor ID
+
+1535219991529	geckodriver	INFO	geckodriver 0.21.0
+1535219991546	geckodriver	INFO	Listening on 127.0.0.1:59129
+1535219991586	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.7OHk7Khw3vi2"
+1535219994941	Marionette	INFO	Listening on port 43771
+1535219995046	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:18303): dconf-WARNING **: 20:00:04.760: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 18181, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1535220316816	geckodriver	INFO	geckodriver 0.21.0
+1535220316820	geckodriver	INFO	Listening on 127.0.0.1:41437
+1535220317831	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.AT19FJXq3me5"
+1535220319681	Marionette	INFO	Listening on port 34231
+1535220319768	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 18597, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1535220714265	geckodriver	INFO	geckodriver 0.21.0
+1535220714270	geckodriver	INFO	Listening on 127.0.0.1:49823
+1535220715277	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jDIPn9QV7smC"
+1535220717084	Marionette	INFO	Listening on port 45909
+1535220717116	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:19013): dconf-WARNING **: 20:12:03.560: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+[Parent 18950, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1535221185561	geckodriver	INFO	geckodriver 0.21.0
+1535221185565	geckodriver	INFO	Listening on 127.0.0.1:49353
+1535221186571	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FUEri9kiBt9p"
+1535221188565	Marionette	INFO	Listening on port 39891
+1535221188594	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:19416): dconf-WARNING **: 20:19:58.722: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 19320, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535221270743	geckodriver	INFO	geckodriver 0.21.0
+1535221270748	geckodriver	INFO	Listening on 127.0.0.1:34539
+1535221271753	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.WQMp42R6T46t"
+1535221273616	Marionette	INFO	Listening on port 37047
+1535221273681	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:19632): dconf-WARNING **: 20:21:21.049: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535221332076	geckodriver	INFO	geckodriver 0.21.0
+1535221332080	geckodriver	INFO	Listening on 127.0.0.1:48693
+1535221333085	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.OeDlis4x4iVG"
+1535221334950	Marionette	INFO	Listening on port 36705
+1535221335002	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:19856): dconf-WARNING **: 20:22:23.948: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535221394093	geckodriver	INFO	geckodriver 0.21.0
+1535221394097	geckodriver	INFO	Listening on 127.0.0.1:35239
+1535221395098	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.gSSJb0J1XvAX"
+1535221397671	Marionette	INFO	Listening on port 46853
+1535221397724	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:20077): dconf-WARNING **: 20:23:25.517: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 19987, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535221455071	geckodriver	INFO	geckodriver 0.21.0
+1535221455078	geckodriver	INFO	Listening on 127.0.0.1:59559
+1535221456085	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vQ89s4b9qS5Y"
+1535221458048	Marionette	INFO	Listening on port 40657
+1535221458110	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:20311): dconf-WARNING **: 20:24:23.433: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 20217, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535221515286	geckodriver	INFO	geckodriver 0.21.0
+1535221515290	geckodriver	INFO	Listening on 127.0.0.1:47377
+1535221516296	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.XzCFZjUyuRDa"
+1535221518119	Marionette	INFO	Listening on port 45643
+1535221518142	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:20531): dconf-WARNING **: 20:25:23.528: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 20429, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1535221728735	geckodriver	INFO	geckodriver 0.21.0
+1535221728739	geckodriver	INFO	Listening on 127.0.0.1:39483
+1535221729745	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.YI6aSVkk0YnT"
+1535221731610	Marionette	INFO	Listening on port 43847
+1535221731684	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:20819): dconf-WARNING **: 20:28:53.800: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+1535221777124	geckodriver	INFO	geckodriver 0.21.0
+1535221777129	geckodriver	INFO	Listening on 127.0.0.1:43073
+1535221778138	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.K9JmzCVDuWc4"
+1535221780187	Marionette	INFO	Listening on port 35871
+1535221780272	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:21045): dconf-WARNING **: 20:29:46.726: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 20949, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535221888772	geckodriver	INFO	geckodriver 0.21.0
+1535221888778	geckodriver	INFO	Listening on 127.0.0.1:38949
+1535221889781	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.HVQBEWnPqq4Y"
+1535221891649	Marionette	INFO	Listening on port 33587
+1535221891736	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:21290): dconf-WARNING **: 20:31:41.957: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 21366, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Parent 20710, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1535221948942	geckodriver	INFO	geckodriver 0.21.0
+1535221948946	geckodriver	INFO	Listening on 127.0.0.1:49499
+1535221949957	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.K0RAqJlHP48O"
+1535221951827	Marionette	INFO	Listening on port 35209
+1535221951890	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:21549): dconf-WARNING **: 20:32:41.485: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 21456, Gecko_IOThread] WARNING: pipe error (61): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535222054561	geckodriver	INFO	geckodriver 0.21.0
+1535222054565	geckodriver	INFO	Listening on 127.0.0.1:50343
+1535222055566	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TNMY30krCvOF"
+1535222057455	Marionette	INFO	Listening on port 40121
+1535222057501	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:21792): dconf-WARNING **: 20:34:28.472: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 21683, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535222465421	geckodriver	INFO	geckodriver 0.21.0
+1535222465425	geckodriver	INFO	Listening on 127.0.0.1:37177
+1535222466427	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.RMNHdzGgzeXk"
+1535222468572	Marionette	INFO	Listening on port 46409
+1535222468649	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535222523902	geckodriver	INFO	geckodriver 0.21.0
+1535222523906	geckodriver	INFO	Listening on 127.0.0.1:52167
+1535222523927	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.008bYz2AnMHM"
+1535222526569	Marionette	INFO	Listening on port 36855
+1535222526679	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:22444): dconf-WARNING **: 20:42:13.931: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16006A,name=PBrowser::Msg_RealMouseButtonEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x160066,name=PBrowser::Msg_RealMouseMoveEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16006A,name=PBrowser::Msg_RealMouseButtonEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x160062,name=PBrowser::Msg_ParentActivated) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x2D0051,name=PContent::Msg_Activate) Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16007F,name=PBrowser::Msg_Destroy) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1535225217796	geckodriver	INFO	geckodriver 0.21.0
+1535225217807	geckodriver	INFO	Listening on 127.0.0.1:50373
+1535225218825	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.YduCsJjmqVYc"
+1535225220902	Marionette	INFO	Listening on port 37379
+1535225220952	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535225269806	geckodriver	INFO	geckodriver 0.21.0
+1535225269810	geckodriver	INFO	Listening on 127.0.0.1:59737
+1535225270816	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.LmG9wsfTOwKd"
+1535225272750	Marionette	INFO	Listening on port 41443
+1535225272838	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:23812): dconf-WARNING **: 21:28:03.190: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+1535225373507	geckodriver	INFO	geckodriver 0.21.0
+1535225373511	geckodriver	INFO	Listening on 127.0.0.1:46329
+1535225374523	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6XxVQ9ZnH0iw"
+1535225376695	Marionette	INFO	Listening on port 34687
+1535225376755	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 23720, Gecko_IOThread] WARNING: pipe error (61): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Parent 23942, Gecko_IOThread] WARNING: pipe error (74): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1535225635821	geckodriver	INFO	geckodriver 0.21.0
+1535225635826	geckodriver	INFO	Listening on 127.0.0.1:60665
+1535225636826	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.mQvRjcFh4rPI"
+1535225638675	Marionette	INFO	Listening on port 35365
+1535225638754	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:24323): dconf-WARNING **: 21:34:05.992: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+1535225855354	geckodriver	INFO	geckodriver 0.21.0
+1535225855370	geckodriver	INFO	Listening on 127.0.0.1:34385
+1535225856386	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.pcXzTSjrgm3n"
+1535225859258	Marionette	INFO	Listening on port 33419
+1535225859338	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16007F,name=PBrowser::Msg_Destroy) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1535226054557	geckodriver	INFO	geckodriver 0.21.0
+1535226054573	geckodriver	INFO	Listening on 127.0.0.1:41731
+1535226055579	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.xNJmlqT0ZJoR"
+1535226057631	Marionette	INFO	Listening on port 39855
+1535226057709	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535226149375	geckodriver	INFO	geckodriver 0.21.0
+1535226149379	geckodriver	INFO	Listening on 127.0.0.1:52899
+1535226150384	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.8YtELKFZ1qM2"
+1535226152702	Marionette	INFO	Listening on port 43065
+1535226152806	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 25560, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1535226284595	geckodriver	INFO	geckodriver 0.21.0
+1535226284609	geckodriver	INFO	Listening on 127.0.0.1:33353
+1535226285623	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.VRFLnCWM9Vz4"
+1535226288910	Marionette	INFO	Listening on port 35247
+1535226289002	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 25839, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535226339184	geckodriver	INFO	geckodriver 0.21.0
+1535226339189	geckodriver	INFO	Listening on 127.0.0.1:57019
+1535226340194	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.0lT9yvpfPfLl"
+1535226342026	Marionette	INFO	Listening on port 41427
+1535226342119	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535226570626	geckodriver	INFO	geckodriver 0.21.0
+1535226570643	geckodriver	INFO	Listening on 127.0.0.1:51641
+1535226570683	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TPqNfSnOitjm"
+1535226574161	Marionette	INFO	Listening on port 34377
+1535226574238	Marionette	WARN	TLS certificate errors will be ignored for this session
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535226654807	geckodriver	INFO	geckodriver 0.21.0
+1535226654811	geckodriver	INFO	Listening on 127.0.0.1:37031
+1535226655832	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.LalfwMJqmkGa"
+1535226657687	Marionette	INFO	Listening on port 34047
+1535226657767	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:2732): dconf-WARNING **: 21:51:03.144: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 2624, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535226738324	geckodriver	INFO	geckodriver 0.21.0
+1535226738329	geckodriver	INFO	Listening on 127.0.0.1:40647
+1535226739336	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ee49d7V98t6m"
+1535226741059	Marionette	INFO	Listening on port 36125
+1535226741155	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:2985): dconf-WARNING **: 21:52:31.379: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+1535226789314	geckodriver	INFO	geckodriver 0.21.0
+1535226789319	geckodriver	INFO	Listening on 127.0.0.1:42019
+1535226790324	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.sM5BvGxtHblE"
+1535226792166	Marionette	INFO	Listening on port 38505
+1535226792243	Marionette	WARN	TLS certificate errors will be ignored for this session
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535226844970	geckodriver	INFO	geckodriver 0.21.0
+1535226844974	geckodriver	INFO	Listening on 127.0.0.1:57577
+1535226845984	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.CkPsfodFt1Ze"
+1535226847808	Marionette	INFO	Listening on port 39707
+1535226847904	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:3415): dconf-WARNING **: 21:54:13.117: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535226913770	geckodriver	INFO	geckodriver 0.21.0
+1535226913774	geckodriver	INFO	Listening on 127.0.0.1:51355
+1535226913800	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kZXGoXKJJgvK"
+1535226916425	Marionette	INFO	Listening on port 43871
+1535226916526	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:3652): dconf-WARNING **: 21:55:21.535: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+1535228139962	geckodriver	INFO	geckodriver 0.21.0
+1535228139972	geckodriver	INFO	Listening on 127.0.0.1:48657
+1535228140998	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Zhw37eOWWjss"
+1535228144608	Marionette	INFO	Listening on port 44989
+1535228144635	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 3893, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16007F,name=PBrowser::Msg_Destroy) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1535265632481	geckodriver	INFO	geckodriver 0.21.0
+1535265632496	geckodriver	INFO	Listening on 127.0.0.1:38365
+1535265633498	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kPpVTvJyPlWr"
+1535265637608	Marionette	INFO	Listening on port 39043
+1535265637635	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:28345): dconf-WARNING **: 08:40:48.607: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+1535265712409	geckodriver	INFO	geckodriver 0.21.0
+1535265712413	geckodriver	INFO	Listening on 127.0.0.1:43969
+1535265713419	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.QjoY5OQ13IfH"
+1535265715164	Marionette	INFO	Listening on port 46591
+1535265715259	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:28598): dconf-WARNING **: 08:42:02.325: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16007F,name=PBrowser::Msg_Destroy) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1535266159734	geckodriver	INFO	geckodriver 0.21.0
+1535266159753	geckodriver	INFO	Listening on 127.0.0.1:43315
+1535266160761	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zEdRwn2zTsaN"
+1535266163797	Marionette	INFO	Listening on port 36645
+1535266163904	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:28951): dconf-WARNING **: 08:49:31.396: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 28834, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16007F,name=PBrowser::Msg_Destroy) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1535275688409	geckodriver	INFO	geckodriver 0.21.0
+1535275688422	geckodriver	INFO	Listening on 127.0.0.1:50825
+1535275689435	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.uVPfa0pjMul3"
+1535275692935	Marionette	INFO	Listening on port 36681
+1535275692989	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:29556): dconf-WARNING **: 11:28:25.309: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+[Parent 29433, Gecko_IOThread] WARNING: pipe error (71): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535275764868	geckodriver	INFO	geckodriver 0.21.0
+1535275764873	geckodriver	INFO	Listening on 127.0.0.1:55861
+1535275765875	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vlgWXEGGdD7D"
+1535275767709	Marionette	INFO	Listening on port 41453
+1535275767800	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:29795): dconf-WARNING **: 11:29:33.106: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535275866748	geckodriver	INFO	geckodriver 0.21.0
+1535275866752	geckodriver	INFO	Listening on 127.0.0.1:33189
+1535275867764	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.i5uxeg1Fe4iu"
+1535275869551	Marionette	INFO	Listening on port 36983
+1535275869591	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:30115): dconf-WARNING **: 11:31:16.547: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16007F,name=PBrowser::Msg_Destroy) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1535277258055	geckodriver	INFO	geckodriver 0.21.0
+1535277258065	geckodriver	INFO	Listening on 127.0.0.1:58995
+1535277259074	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5d3L7gQwyz4B"
+1535277262160	Marionette	INFO	Listening on port 43023
+1535277262256	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+JavaScript error: https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.js, line 17: ReferenceError: jQuery is not defined
+JavaScript error: https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js, line 5: ReferenceError: jQuery is not defined
+JavaScript error: https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js, line 5: ReferenceError: jQuery is not defined
+JavaScript error: http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js, line 1614: TypeError: $ is undefined
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16006A,name=PBrowser::Msg_RealMouseButtonEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x160066,name=PBrowser::Msg_RealMouseMoveEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16006A,name=PBrowser::Msg_RealMouseButtonEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16006A,name=PBrowser::Msg_RealMouseButtonEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x160066,name=PBrowser::Msg_RealMouseMoveEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16006A,name=PBrowser::Msg_RealMouseButtonEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16006A,name=PBrowser::Msg_RealMouseButtonEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x160066,name=PBrowser::Msg_RealMouseMoveEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16006A,name=PBrowser::Msg_RealMouseButtonEvent) Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x2D0020,name=PContent::Msg_PreferenceUpdate) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x2D0020,name=PContent::Msg_PreferenceUpdate) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x16007F,name=PBrowser::Msg_Destroy) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1535279666945	geckodriver	INFO	geckodriver 0.21.0
+1535279666970	geckodriver	INFO	Listening on 127.0.0.1:44997
+1535279667954	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.yAIkUnOYAJnn"
+1535279672398	Marionette	INFO	Listening on port 43063
+1535279672500	Marionette	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 2378, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-oscv9o/firefox-61.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1535279722785	geckodriver	INFO	geckodriver 0.21.0
+1535279722789	geckodriver	INFO	Listening on 127.0.0.1:45511
+1535279723799	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.mDugBiRFV2SL"
+1535279725704	Marionette	INFO	Listening on port 43763
+1535279725737	Marionette	WARN	TLS certificate errors will be ignored for this session
