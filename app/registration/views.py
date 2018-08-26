@@ -58,14 +58,14 @@ def register():
                         registration = Registration(first_name=first_name, last_name=last_name, student_code=code, classgroup=classgroup)
                         db.session.add(registration)
                         db.session.commit()
-                        flash(u'Nieuwe student: {} {} {} met code {}'.format(last_name, first_name, classgroup, code))
-                        log.info(u'added student : {} {} {} with code {}'.format(last_name, first_name, classgroup, code))
+                        flash(u'Nieuwe student: {} {} {} met code {}'.format(first_name, last_name, classgroup, code))
+                        log.info(u'added student : {} {} {} with code {}'.format(first_name, last_name, classgroup, code))
             else:
                 registration_id = int(request.form['registration_id'])
                 if code[:2] == 'LL':    #student code
                     registration = Registration.query.filter(Registration.student_code==code).first()
                     if registration:
-                        student_name = u'{} {}'.format(registration.last_name, registration.first_name)
+                        student_name = u'{} {}'.format(registration.first_name, registration.last_name)
                         classgroup = registration.classgroup
                         computer_code = ''
                         registration_id = registration.id
