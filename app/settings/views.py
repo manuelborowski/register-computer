@@ -59,11 +59,11 @@ def upload_file():
     if request.files['upload_students']: import_students(request.files['upload_students'])
     return redirect(url_for('settings.show'))
 
-#Achternaam     last_name
-#Voornaam       first_name
-#Code           number
+#NAAM           last_name
+#VOORNAAM       first_name
+#LEERLINGNUMMER student_code
 #FOTO           photo
-#Klas           classgroup
+#KLAS           classgroup
 
 def import_students(rfile):
     try:
@@ -75,12 +75,12 @@ def import_students(rfile):
         nbr_students = 0
         for s in students_file:
             #skip empy records
-            if s['Code'] != '' and s['Voornaam'] != '' and s['Achternaam'] != '' and s['Klas'] != '':
+            if s['LEERLINGNUMMER'] != '' and s['VOORNAAM'] != '' and s['NAAM'] != '' and s['KLAS'] != '':
                 #add student, if not already present
-                find_student=Registration.query.filter(Registration.first_name==s['Voornaam'], Registration.last_name==s['Achternaam'],
-                                                        Registration.student_code ==s['Code'], Registration.classgroup==s['Klas']).first()
+                find_student=Registration.query.filter(Registration.first_name==s['VOORNAAM'], Registration.last_name==s['NAAM'],
+                                                        Registration.student_code ==s['LEERLINGNUMMER'], Registration.classgroup==s['KLAS']).first()
                 if not find_student:
-                    student = Registration(first_name=s['Voornaam'], last_name=s['Achternaam'], student_code=s['Code'], classgroup=s['Klas'])
+                    student = Registration(first_name=s['VOORNAAM'], last_name=s['NAAM'], student_code=s['LEERLINGNUMMER'], classgroup=s['KLAS'])
                     db.session.add(student)
                     nbr_students += 1
 
@@ -100,24 +100,24 @@ def exportcsv():
     #The following line is required only to build the filter-fields on the page.
     csv_file = cStringIO.StringIO()
     headers = [
-        'Achternaam',
-        'Voornaam',
-        'Klas',
-        'Code',
-        'Computer',
-        'Tijdstempel',
+        'NAAM',
+        'VOORNAAM',
+        'KLAS',
+        'LEERLINGNUMMER',
+        'COMPUTER',
+        'TIJD',
     ]
 
     rows = []
     for r in Registration.query.all():
         rows.append(
             {
-                'Achternaam': r.last_name,
-                'Voornaam': r.first_name,
-                'Klas' : r.classgroup,
-                'Code': r.student_code,
-                'Computer': r.computer_code,
-                'Tijdstempel': r.timestamp,
+                'NAAM': r.last_name,
+                'VOORNAAM': r.first_name,
+                'KLAS' : r.classgroup,
+                'LEERLINGNUMMER': r.student_code,
+                'COMPUTER': r.computer_code,
+                'TIJD': r.timestamp,
             }
         )
 

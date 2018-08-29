@@ -37,12 +37,13 @@ def registrations():
 @registration.route('/registration', methods=['GET', 'POST'])
 @login_required
 def register():
+    registration_id = -1   #user should enter a student code
     student_name = ''
-    computer_code = ''
-    classgroup = ''
-    registration_id = -1
-    new_registration = False
     barcode = ''
+    new_student = False
+    classgroup = ''
+    student_code = ''
+
     try:
         if 'code' in request.form:
             code = request.form['code'].upper()
@@ -51,9 +52,9 @@ def register():
                     first_name = request.form['new_first_name']
                     last_name = request.form['new_last_name']
                     classgroup = request.form['new_classgroup']
-                    if last_name=='' or first_name=='':
-                        flash('Naam is niet volledig, probeer opnieuw')
-                        log.info('add student : bad name')
+                    if last_name == '' or first_name == '' or classgroup == '':
+                        flash('Naam en/of klas is niet volledig, probeer opnieuw')
+                        log.info('add student : bad name and/or classgroup')
                     else:
                         registration = Registration(first_name=first_name, last_name=last_name, student_code=code, classgroup=classgroup)
                         db.session.add(registration)
@@ -62,55 +63,70 @@ def register():
                         log.info(u'added student : {} {} {} with code {}'.format(first_name, last_name, classgroup, code))
             else:
                 registration_id = int(request.form['registration_id'])
-                if code[:2] == 'LL':    #student code
-                    registration = Registration.query.filter(Registration.student_code==code).first()
+                try:
+                    test_code = int(code) #check if it is an integer, in which case, try to find  it in the database
+                    registration = Registration.query.filter(Registration.student_code == code).first()
                     if registration:
                         student_name = u'{} {}'.format(registration.first_name, registration.last_name)
+                        student_code = u'{}'.format(code)
                         classgroup = registration.classgroup
-                        computer_code = ''
                         registration_id = registration.id
-                    else: #student code not present : new entry
-                        new_registration = True
-                        barcode = code
-                elif code[:3] == 'URS' and registration_id > -1:
-                    #add a computer code.  Old computer code will be overwritten
-                    registration = Registration.query.get(registration_id)
-                    if registration:
-                        registration.computer_code = None if code == u'URSDELETE' else code
-                        registration.timestamp = datetime.datetime.now()
-                        registration.user_id = current_user.id
-                        db.session.commit()
-                        log.info(u'assigned pc {} to student code {}'.format(code, registration.student_code))
+                    else:
+                        #new student, code should start at 20000
+                        if test_code >= 20000:
+                            new_student = True
+                            registration_id = test_code
+                            barcode = code  #show student code
+                        else:
+                            flash(u'Onbekende code.  Nieuwe leerlingcode start vanaf 20000')
+                            log.info(u'unknown code.  New studentcode starts from 20000')
+                            registration_id = -1
+                except:
+                    if code[:3] == 'URS':
+                        #add a computer code.  Old computer code will be overwritten
+                        registration = Registration.query.get(registration_id)
+                        if registration:
+                            registration.computer_code = None if code == u'URSDELETE' else code
+                            registration.timestamp = datetime.datetime.now()
+                            registration.user_id = current_user.id
+                            db.session.commit()
+                            log.info(u'assigned pc {} to student code {}'.format(code, registration.student_code))
+                            registration_id = -1
+                        else:
+                            flash(u'Eerst leerlingcode ingeven')
+                            log.info(u'First enter student code')
+                            registration_id = -1
+                    else:
+                        flash(u'Onbekende code.  Code moet beginnen met een cijfer of URS')
+                        log.info(u'unknown code (does not start with a cypher or URS)')
                         registration_id = -1
-                else:
-                    flash(u'Onbekende code.  Code moet beginnen met LL of URS')
-                    log.info(u'unknown code (does not start with LL or URS)')
-                    registration_id = -1
 
     except IntegrityError as e: #computer code already present
         db.session.rollback()
         r = Registration.query.filter(Registration.computer_code==code).first()
         flash(u'Deze computer code is reeds toegewezen aan {} {}'.format(r.last_name, r.first_name))
         log.warning(u'PC {} is already assigned to {}.  error {}'.format(code, r.student_code, e))
-        student_name = ''
-        computer_code = ''
         registration_id = -1
-        barcode = ''
     except Exception as e:
         db.session.rollback()
         flash(u'Onbekende fout, probeer opnieuw')
         log.warning(u'unknow error : {}'.format(e))
-        student_name = ''
-        computer_code = ''
         registration_id = -1
+
+    if registration_id == -1:
+        student_name = ''
         barcode = ''
+        new_student = False
+        classgroup = ''
+        student_code = ''
 
     registrations = Registration.query.filter(Registration.computer_code<>'', Registration.user_id==current_user.id).order_by(Registration.timestamp.desc()).all()
-    return render_template('registration/registration.html', student_name=student_name,
+    return render_template('registration/registration.html',
                            barcode=barcode,
-                           computer_code=computer_code,
                            registration_id=registration_id,
-                           new_registration=new_registration,
+                           new_student=new_student,
+                           student_name=student_name,
                            classgroup=classgroup,
+                           student_code=student_code,
                            registrations=registrations)
 

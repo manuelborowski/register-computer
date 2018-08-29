@@ -12,19 +12,19 @@
         <form method="post" enctype=multipart/form-data action="{{ url_for('registration.register') }}">
             <div class="container">
                 <div class="form-group row">
-                    <div class="col-sm-2">
-                        <label for="code" id="code_label">{% if registration_id > -1 %}Computercode: {% else %}Leerlingcode:{% endif %}</label>
-                        <input type="text" class="form-control" id="code" name="code" value="{{barcode}}" {% if not new_registration %}autofocus{% endif %}>
+                    <div class="col-sm-3">
+                        <label for="code" id="code_label">{% if registration_id > -1 %}Computercode (of leerlingcode) {% else %}Leerlingcode{% endif %}</label>
+                        <input type="text" class="form-control" id="code" name="code" value="{{barcode}}" {% if not new_student %}autofocus{% endif %}>
                     </div>
                 </div>
-                {% if new_registration %}
+                {% if new_student %}
                 <div class="panel panel-default">
                     <div class="panel-heading">Nieuwe leerling</div>
                     <div class="panel-body">
                         <div class="form-group row">
                             <div class="col-sm-4">
                                 <label for="code">Achternaam</label>
-                                <input type="text" class="form-control" id="new_last_name" name="new_last_name" {% if new_registration %}autofocus{% endif %}>
+                                <input type="text" class="form-control" id="new_last_name" name="new_last_name" {% if new_student %}autofocus{% endif %}>
                             </div>
                             <div class="col-sm-4">
                                 <label for="code">Voornaam</label>
@@ -44,12 +44,16 @@
                 {% endif %}
                 {% if registration_id > -1 %}
                 <div class="form-group row">
+                    <div class="col-sm-1">
+                        <label for="student_code">Code</label>
+                        <input type="text" class="form-control" id="student_code" name="student_code" value="{{ student_code }}" readonly>
+                    </div>
                     <div class="col-sm-4">
-                        <label for="name">Naam:</label>
+                        <label for="name">Naam</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ student_name }}" readonly>
                     </div>
                     <div class="col-sm-2">
-                        <label for="classgroup">Klas:</label>
+                        <label for="classgroup">Klas</label>
                         <input type="text" class="form-control" id="classgroup" name="classgroup" value="{{ classgroup }}" readonly>
                     </div>
                 </div>
