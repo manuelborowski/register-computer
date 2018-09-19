@@ -63,7 +63,7 @@ def add(id=-1):
         log.info('add : {}'.format(user.log()))
         #flash('You have added user {}'.format(user.username))
         return redirect(url_for('user.users'))
-    return render_template('user/user.html', form=form, title='Add a user', role='add', route='user.users', subject='user')
+    return render_template('user/user.html', form=form, title='Voeg een gebruiker toe', role='add', route='user.users', subject='user')
 
 
 #edit a user
@@ -73,13 +73,13 @@ def edit(id):
     user = User.query.get_or_404(id)
     form = EditForm(obj=user)
     if form.validate_on_submit():
-        if request.form['button'] == 'Save':
+        if request.form['button'] == 'Bewaar':
             form.populate_obj(user)
             db.session.commit()
             #flash('You have edited user {}'.format(user.username))
 
         return redirect(url_for('user.users'))
-    return render_template('user/user.html', form=form, title='Edit a user', role='edit', route='user.users', subject='user')
+    return render_template('user/user.html', form=form, title='Pas een gebruiker aan', role='edit', route='user.users', subject='user')
 
 #no login required
 @user.route('/user/view/<int:id>', methods=['GET', 'POST'])
@@ -88,7 +88,7 @@ def view(id):
     form = ViewForm(obj=user)
     if form.validate_on_submit():
         return redirect(url_for('user.users'))
-    return render_template('user/user.html', form=form, title='View a user', role='view', route='user.users', subject='user')
+    return render_template('user/user.html', form=form, title='Bekijk een gebruiker', role='view', route='user.users', subject='user')
 
 #delete a user
 @user.route('/user/delete/<int:id>', methods=['GET', 'POST'])
@@ -109,7 +109,7 @@ def change_pwd(id):
         if user.verify_password(form.old_password.data):
             user.password = form.new_password.data
             db.session.commit()
-            flash('Your password was successfully changed.')
+            flash('Je paswoord is bewaard.')
             return redirect(url_for('user.users'))
-        flash('Invalid username or password.')
-    return render_template('user/user.html', form=form, title='Change password', role='change_password', route='user.users', subject='user')
+        flash('Ongeldige gebruikersnaam.')
+    return render_template('user/user.html', form=form, title='Verander paswoord', role='change_password', route='user.users', subject='user')
