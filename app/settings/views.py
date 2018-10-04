@@ -89,7 +89,7 @@ def import_students(rfile):
         flash('Leerlingen zijn geimporteerd')
 
     except Exception as e:
-        flash('Kan bestand niet importeren')
+        flash('Kan bestand niet importeren, is het in UTF-8 formaat?')
         log.warning('cannot import students')
     return redirect(url_for('settings.show'))
 
