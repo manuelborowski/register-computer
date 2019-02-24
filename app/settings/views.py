@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # app/settings/views.py
 
-from flask import render_template, redirect, url_for, request, flash, send_file, abort
+from flask import render_template, redirect, url_for, request, flash, send_file, abort, make_response
 from flask_login import login_required
 from ..base import get_global_setting_current_schoolyear, set_global_setting_current_schoolyear, get_setting_simulate_dayhour, set_setting_simulate_dayhour
 from . import settings
@@ -9,8 +9,9 @@ from .. import db, app, log
 from ..models import Settings, Registration
 from flask_login import current_user
 
-import unicodecsv as csv
-import cStringIO, csv
+import unicodecsv   #import csv
+import csv          #export csv
+from io import StringIO
 
 def check_admin():
     if not current_user.is_admin:
@@ -67,10 +68,8 @@ def upload_file():
 
 def import_students(rfile):
     try:
-        # format csv file :
         log.info('Import students from : {}'.format(rfile))
-        students_file = csv.DictReader(rfile,  delimiter=';')
-        #students_file = csv.DictReader(rfile,  delimiter=';', encoding='utf-8-sig')
+        students_file = unicodecsv.DictReader(rfile,  delimiter=';')
 
         nbr_students = 0
         for s in students_file:
@@ -97,34 +96,36 @@ def import_students(rfile):
 @settings.route('/settings/export', methods=['GET', 'POST'])
 @login_required
 def exportcsv():
-    #The following line is required only to build the filter-fields on the page.
-    csv_file = cStringIO.StringIO()
-    headers = [
-        'NAAM',
-        'VOORNAAM',
-        'KLAS',
-        'LEERLINGNUMMER',
-        'COMPUTER',
-        'TIJD',
-    ]
-
-    rows = []
-    for r in Registration.query.all():
-        rows.append(
-            {
-                'NAAM': r.last_name,
-                'VOORNAAM': r.first_name,
-                'KLAS' : r.classgroup,
-                'LEERLINGNUMMER': r.student_code,
-                'COMPUTER': r.computer_code,
-                'TIJD': r.timestamp,
-            }
+    try:
+        headers = (
+            u'NAAM',
+            u'VOORNAAM',
+            u'KLAS',
+            u'LEERLINGNUMMER',
+            u'COMPUTER',
+            u'TIJD',
         )
 
-    writer = csv.DictWriter(csv_file, headers, delimiter=';')
-    writer.writeheader()
-    for r in rows:
-        writer.writerow(dict((k, v.encode('utf-8') if type(v) is unicode else v) for k, v in r.iteritems()))
-    csv_file.seek(0)
-    log.info('exported students')
-    return send_file(csv_file, attachment_filename='registraties.csv', as_attachment=True)
+        rows = []
+        for r in Registration.query.all():
+            rows.append((
+                r.last_name,
+                r.first_name,
+                r.classgroup,
+                r.student_code,
+                r.computer_code,
+                r.timestamp,
+            ))
+
+        si = StringIO()
+        cw = csv.writer(si, delimiter=';')
+        cw.writerow(headers)
+        cw.writerows(rows)
+        output = make_response(si.getvalue())
+        output.headers["Content-Disposition"] = "attachment; filename=registraties.csv"
+        output.headers["Content-type"] = "text/csv"
+        return output
+    except Exception as e:
+        log.error('Could not export file {}'.format(e))
+        return redirect(url_for('settings.show'))
+

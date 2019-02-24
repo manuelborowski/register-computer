@@ -7,7 +7,7 @@ from flask_login import current_user
 from sqlalchemy import or_
 import time, datetime
 
-from models import User, Settings, Registration
+from .models import User, Settings, Registration
 from . import log
 
 class InlineButtonWidget(object):
@@ -56,7 +56,7 @@ def check_value_in_form(value_key, form):
 def check_string_in_form(value_key, form):
     if value_key in form and form[value_key] != '':
         try:
-            unicode(form[value_key])
+            isinstance([value_key], str)
             return form[value_key]
         except:
             flash('Verkeerde tekst notatie')

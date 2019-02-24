@@ -11,7 +11,7 @@ from ..models import  Registration
 from ..base import build_filter, get_ajax_table
 from ..tables_config import  tables_configuration
 
-import cStringIO, csv, re, datetime
+import datetime
 
 from sqlalchemy.exc import IntegrityError
 
@@ -120,7 +120,7 @@ def register():
         classgroup = ''
         student_code = ''
 
-    registrations = Registration.query.filter(Registration.computer_code<>'', Registration.user_id==current_user.id).order_by(Registration.timestamp.desc()).all()
+    registrations = Registration.query.filter(Registration.computer_code!='', Registration.user_id==current_user.id).order_by(Registration.timestamp.desc()).all()
     return render_template('registration/registration.html',
                            barcode=barcode,
                            registration_id=registration_id,

@@ -14,6 +14,12 @@ import config, logging, logging.handlers, os, sys
 
 app = Flask(__name__, instance_relative_config=True)
 
+#V1.0 : reworked to python 3.7.2
+
+@app.context_processor
+def inject_version():
+    return dict(version = 'V1.0')
+
 #enable logging
 LOG_HANDLE = 'SB'
 log = logging.getLogger(LOG_HANDLE)
