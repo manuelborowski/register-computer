@@ -31,7 +31,7 @@ intervals==0.8.1
 ipaddress==1.0.22
 itsdangerous==1.1.0
 Jinja2==2.10
-Mako==1.0.7
+Mako==1.2.2
 MarkupSafe==1.1.0
 oauthlib==3.0.1
 packaging==19.0
